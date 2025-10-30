@@ -67,57 +67,68 @@
     let currentFile = 1;
     let allPosts = [];
     let postIndex = 0;
+    const postsContainer = document.getElementById("postsContainer");
+    const loadMoreBtn = document.getElementById("loadMore");
 
     document.getElementById("backBtn").addEventListener("click", () => {
       window.location.href = "home.html";
     });
 
     async function loadNextFile() {
+      const fileName = `telegram_posts_${currentFile}.json`;
+      console.log(`📂 Trying to load ${fileName}...`);
+
       try {
-        const res = await fetch(`telegram_posts_${currentFile}.json`);
+        const res = await fetch(fileName, { cache: "no-store" });
         if (!res.ok) {
-          if (currentFile === 1)
-            document.getElementById("postsContainer").innerHTML =
-              "<p style='text-align:center;color:red;'>❌ No posts found.</p>";
-          document.getElementById("loadMore").style.display = "none";
+          console.warn(`⚠️ File not found: ${fileName}`);
+          if (currentFile === 1) {
+            postsContainer.innerHTML = "<p style='text-align:center;color:red;'>❌ No posts found.</p>";
+          }
+          loadMoreBtn.style.display = "none";
           return;
         }
 
         const posts = await res.json();
-        if (currentFile === 1) document.getElementById("postsContainer").innerHTML = "";
+        console.log(`✅ Loaded ${posts.length} posts from ${fileName}`);
+        if (currentFile === 1) postsContainer.innerHTML = "";
         allPosts.push(...posts);
         allPosts.sort((a, b) => b.id - a.id); // newest first
+
         renderNextBatch();
         currentFile++;
       } catch (err) {
-        console.error("⚠️ Error loading file:", err);
+        console.error("❌ Error loading file:", err);
+        postsContainer.innerHTML = "<p style='text-align:center;color:red;'>⚠️ Failed to load posts.</p>";
       }
     }
 
     function renderNextBatch(count = 5) {
-      const container = document.getElementById("postsContainer");
       const slice = allPosts.slice(postIndex, postIndex + count);
-
+      console.log(`📦 Rendering posts ${postIndex} → ${postIndex + count}`);
+      
       slice.forEach((p) => {
         const html = `
           <blockquote class="telegram-post"
             data-telegram-post="${p.username}/${p.id}"
             data-width="100%">
           </blockquote>`;
-        container.insertAdjacentHTML("beforeend", html);
+        postsContainer.insertAdjacentHTML("beforeend", html);
       });
 
       postIndex += count;
-      if (postIndex >= allPosts.length) {
-        loadNextFile(); // auto load next file if current exhausted
-      }
 
       if (window.Telegram && window.Telegram.Widgets) {
         window.Telegram.Widgets.load();
       }
+
+      // If all posts in current batch are shown, try to load next JSON file
+      if (postIndex >= allPosts.length) {
+        loadNextFile();
+      }
     }
 
-    document.getElementById("loadMore").addEventListener("click", renderNextBatch);
+    loadMoreBtn.addEventListener("click", () => renderNextBatch());
     loadNextFile();
   </script>
 </body>
