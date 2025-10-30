@@ -6,11 +6,13 @@
   <title>Luu Myat Kyaw – Telegram Channel</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
       font-family: "Inter", sans-serif;
       background: #f4f6f8;
       color: #222;
+      overflow-x: hidden; /* ✅ Prevent side scroll */
     }
     header {
       background: #fff;
@@ -23,29 +25,43 @@
       top: 0;
       z-index: 10;
     }
-    .back-btn { font-size: 1.3rem; color: #333; cursor: pointer; transition: color .2s; }
+    .back-btn {
+      font-size: 1.3rem;
+      color: #333;
+      cursor: pointer;
+      transition: color .2s;
+    }
     .back-btn:hover { color: #007bff; }
     .profile { display: flex; align-items: center; gap: 0.8rem; }
-    .profile img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
-    .profile h2 { font-size: 1.1rem; margin: 0; display: flex; align-items: center; gap: 0.3rem; }
+    .profile img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .profile h2 {
+      font-size: 1.1rem;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
     .verified { color: #1d9bf0; }
-    main { max-width: 720px; margin: 1.5rem auto; padding: 0 1rem; }
-    .telegram-post, .text-post {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    main {
+      max-width: 720px;
+      margin: 1.5rem auto;
+      padding: 0 1rem;
+    }
+    .telegram-post {
       margin: 1rem auto;
-      padding: 1rem;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
-    .text-post h4 {
-      margin: 0 0 0.3rem 0;
-      font-size: 0.95rem;
-      color: #0077e6;
-    }
-    .text-post p {
-      white-space: pre-line;
-      margin: 0.5rem 0 0 0;
-      line-height: 1.5;
+    iframe {
+      max-width: 100% !important;
+      border-radius: 12px;
     }
     .loading {
       text-align: center;
@@ -67,9 +83,11 @@
     <p class="loading">Loading posts...</p>
   </main>
 
+  <!-- Telegram Embed Script -->
   <script async src="https://telegram.org/js/telegram-widget.js?22"></script>
+
   <script>
-    const channelUsername = "lmk1980"; 
+    const channelUsername = "lmk1980";
     const postsContainer = document.getElementById("postsContainer");
     let currentFile = 1;
     let totalLoaded = 0;
@@ -108,23 +126,15 @@
 
     function renderPosts(posts) {
       posts.forEach((p) => {
-        // Telegram Embed
+        // Only Telegram Embed
         const blockquote = document.createElement("blockquote");
         blockquote.className = "telegram-post";
         blockquote.setAttribute("data-telegram-post", `${p.username}/${p.id}`);
         blockquote.setAttribute("data-width", "100%");
         postsContainer.appendChild(blockquote);
-
-        // Fallback text view
-        const fallback = document.createElement("div");
-        fallback.className = "text-post";
-        fallback.innerHTML = `
-          <h4>@${p.username} – ${new Date(p.date * 1000).toLocaleString()}</h4>
-          <p>${p.text || "(No text)"}</p>
-        `;
-        postsContainer.appendChild(fallback);
       });
 
+      // Reload Telegram widgets
       if (window.Telegram && window.Telegram.Widgets) {
         window.Telegram.Widgets.load();
       }
