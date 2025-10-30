@@ -12,7 +12,7 @@
       font-family: "Inter", sans-serif;
       background: #f4f6f8;
       color: #222;
-      overflow-x: hidden; /* ✅ Prevent side scroll */
+      overflow-x: hidden; /* ✅ No horizontal scroll */
     }
     header {
       background: #fff;
@@ -52,16 +52,25 @@
       margin: 1.5rem auto;
       padding: 0 1rem;
     }
-    .telegram-post {
-      margin: 1rem auto;
-      border-radius: 12px;
-      overflow: hidden;
+    .post {
       background: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    }
-    iframe {
-      max-width: 100% !important;
       border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      margin: 1rem auto;
+      padding: 0.5rem;
+    }
+    .fallback {
+      padding: 0.8rem;
+    }
+    .fallback h4 {
+      font-size: 0.9rem;
+      color: #0077e6;
+      margin: 0 0 0.3rem 0;
+    }
+    .fallback p {
+      margin: 0.4rem 0 0 0;
+      white-space: pre-line;
+      line-height: 1.5;
     }
     .loading {
       text-align: center;
@@ -69,6 +78,8 @@
       padding: 1rem;
     }
   </style>
+  <!-- ✅ Load Telegram embed script -->
+  <script async src="https://telegram.org/js/telegram-widget.js?22"></script>
 </head>
 <body>
   <header>
@@ -83,61 +94,85 @@
     <p class="loading">Loading posts...</p>
   </main>
 
-  <!-- Telegram Embed Script -->
-  <script async src="https://telegram.org/js/telegram-widget.js?22"></script>
-
   <script>
-    const channelUsername = "lmk1980";
     const postsContainer = document.getElementById("postsContainer");
     let currentFile = 1;
-    let totalLoaded = 0;
 
     document.getElementById("backBtn").addEventListener("click", () => {
       window.location.href = "home.html";
     });
 
     async function loadAllFiles() {
+      postsContainer.innerHTML = "<p class='loading'>Loading posts...</p>";
+      let allPosts = [];
+
+      // Load all numbered JSON files (telegram_posts_1.json, telegram_posts_2.json, etc.)
       while (true) {
         const fileName = `telegram_posts_${currentFile}.json`;
-        console.log(`📂 Loading ${fileName}`);
-
         try {
           const res = await fetch(fileName, { cache: "no-store" });
-          if (!res.ok) {
-            console.log("✅ All files loaded.");
-            break;
-          }
-
+          if (!res.ok) break;
           const posts = await res.json();
-          if (currentFile === 1) postsContainer.innerHTML = "";
-
-          posts.sort((a, b) => b.id - a.id); // newest first
-          renderPosts(posts);
-          totalLoaded += posts.length;
+          allPosts.push(...posts);
           currentFile++;
-        } catch (err) {
-          console.error(`❌ Error loading ${fileName}:`, err);
+        } catch {
           break;
         }
       }
 
-      console.log(`✅ Finished loading all posts (${totalLoaded} total).`);
+      if (allPosts.length === 0) {
+        postsContainer.innerHTML = "<p class='loading' style='color:red;'>❌ No posts found.</p>";
+        return;
+      }
+
+      // Sort newest first
+      allPosts.sort((a, b) => b.id - a.id);
+
+      postsContainer.innerHTML = "";
+      renderPosts(allPosts);
     }
 
     function renderPosts(posts) {
       posts.forEach((p) => {
-        // Only Telegram Embed
-        const blockquote = document.createElement("blockquote");
-        blockquote.className = "telegram-post";
-        blockquote.setAttribute("data-telegram-post", `${p.username}/${p.id}`);
-        blockquote.setAttribute("data-width", "100%");
-        postsContainer.appendChild(blockquote);
+        const postDiv = document.createElement("div");
+        postDiv.className = "post";
+
+        // Telegram embed block
+        const embed = document.createElement("blockquote");
+        embed.className = "telegram-post";
+        embed.setAttribute("data-telegram-post", `${p.username}/${p.id}`);
+        embed.setAttribute("data-width", "100%");
+
+        // Fallback text block (hidden initially)
+        const fallback = document.createElement("div");
+        fallback.className = "fallback";
+        fallback.style.display = "none";
+        fallback.innerHTML = `
+          <h4>@${p.username} – ${new Date(p.date * 1000).toLocaleString()}</h4>
+          <p>${p.text || "(No text)"}</p>
+        `;
+
+        postDiv.appendChild(embed);
+        postDiv.appendChild(fallback);
+        postsContainer.appendChild(postDiv);
       });
 
-      // Reload Telegram widgets
+      // Load Telegram embeds
       if (window.Telegram && window.Telegram.Widgets) {
         window.Telegram.Widgets.load();
       }
+
+      // Fallback checker: if Telegram fails to render embed, show text
+      setTimeout(() => {
+        document.querySelectorAll(".telegram-post").forEach(block => {
+          const parent = block.closest(".post");
+          const fallback = parent.querySelector(".fallback");
+          if (!block.querySelector("iframe")) {
+            block.style.display = "none";
+            fallback.style.display = "block";
+          }
+        });
+      }, 3000); // wait 3 seconds for widget load
     }
 
     loadAllFiles();
