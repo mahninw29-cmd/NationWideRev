@@ -15,6 +15,22 @@
     {
       "title": "Policy",
       "file": "policy.html"
+    },
+    {
+      "title": "Information Data",
+      "file": "information.json"
+    },
+    {
+      "title": "Telegram Posts 1",
+      "file": "telegram_posts_1.json"
+    },
+    {
+      "title": "Telegram Posts 2",
+      "file": "telegram_posts_2.json"
+    },
+    {
+      "title": "Telegram Posts 3",
+      "file": "telegram_posts_3.json"
     }
   ]
 }
