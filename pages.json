@@ -1,0 +1,20 @@
+{
+  "pages": [
+    {
+      "title": "Home",
+      "file": "home.html"
+    },
+    {
+      "title": "NRA – Luu Myat Kyaw & Dominex",
+      "file": "nra_lmk_and_dominex.html"
+    },
+    {
+      "title": "Telegram Channel",
+      "file": "telegram_channel.html"
+    },
+    {
+      "title": "Policy",
+      "file": "policy.html"
+    }
+  ]
+}
