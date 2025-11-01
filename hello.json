@@ -1,0 +1,91 @@
+{
+  "type": "androidx.constraintlayout.widget.ConstraintLayout",
+  "width": "match_parent",
+  "height": "match_parent",
+  "children": [
+    {
+      "type": "android.widget.TextView",
+      "id": 101,
+      "text": "Welcome to Dynamic UI!",
+      "textSize": 24,
+      "textColor": "#000000",
+      "width": "wrap_content",
+      "height": "wrap_content",
+      "constraints": {
+        "topToTop": {"targetId": 0, "margin": 32},
+        "startToStart": {"targetId": 0, "margin": 16}
+      }
+    },
+    {
+      "type": "android.widget.ImageView",
+      "id": 102,
+      "src": "https://placekitten.com/300/200",
+      "width": "300",
+      "height": "200",
+      "constraints": {
+        "topToBottom": {"targetId": 101, "margin": 24},
+        "startToStart": {"targetId": 0, "margin": 16}
+      }
+    },
+    {
+      "type": "android.widget.Button",
+      "id": 103,
+      "text": "Click Me",
+      "width": "wrap_content",
+      "height": "wrap_content",
+      "action": "{\"type\":\"toast\",\"message\":\"Button Clicked!\"}",
+      "constraints": {
+        "topToBottom": {"targetId": 102, "margin": 24},
+        "startToStart": {"targetId": 0, "margin": 16}
+      }
+    },
+    {
+      "type": "androidx.recyclerview.widget.RecyclerView",
+      "id": 104,
+      "width": "match_parent",
+      "height": "300",
+      "margin": 16,
+      "items": [
+        {"type":"android.widget.TextView","text":"Item 1","textSize":18,"textColor":"#FF0000","width":"wrap_content","height":"wrap_content"},
+        {"type":"android.widget.TextView","text":"Item 2","textSize":18,"textColor":"#00FF00","width":"wrap_content","height":"wrap_content"},
+        {"type":"android.widget.TextView","text":"Item 3","textSize":18,"textColor":"#0000FF","width":"wrap_content","height":"wrap_content"}
+      ],
+      "constraints": {
+        "topToBottom": {"targetId": 103, "margin": 32},
+        "startToStart": {"targetId": 0, "margin": 16},
+        "endToEnd": {"targetId": 0, "margin": 16}
+      }
+    },
+    {
+      "type": "android.widget.LinearLayout",
+      "id": 105,
+      "width": "match_parent",
+      "height": "wrap_content",
+      "orientation": "horizontal",
+      "padding": 16,
+      "children": [
+        {
+          "type": "android.widget.Button",
+          "text": "Left",
+          "width": "0",
+          "height": "wrap_content",
+          "weight": 1,
+          "action": "{\"type\":\"toast\",\"message\":\"Left clicked\"}"
+        },
+        {
+          "type": "android.widget.Button",
+          "text": "Right",
+          "width": "0",
+          "height": "wrap_content",
+          "weight": 1,
+          "action": "{\"type\":\"toast\",\"message\":\"Right clicked\"}"
+        }
+      ],
+      "constraints": {
+        "topToBottom": {"targetId": 104, "margin": 32},
+        "startToStart": {"targetId": 0, "margin": 16},
+        "endToEnd": {"targetId": 0, "margin": 16}
+      }
+    }
+  ]
+}
