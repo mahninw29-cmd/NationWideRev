@@ -1,20 +1,88 @@
 {
+  "type": "android.widget.LinearLayout",
+  "orientation": "vertical",
+  "backgroundColor": "#f3f4f6",
+  "padding": 24,
+  "gravity": "center",
+  "fadeIn": true,
   "children": [
     {
-      "type": "android.widget.TextView",
-      "text": "Welcome to Sendiog!",
-      "textSize": 24,
-      "textColor": "#222222",
-      "padding": 20
-    },
-    {
-      "type": "android.widget.Button",
-      "text": "Open Hello Screen",
-      "action": "{\"type\":\"navigate\", \"target\":\"hello.json\"}",
-      "backgroundColor": "#03A9F4",
-      "textColor": "#FFFFFF",
-      "padding": 15,
-      "margin": 20
+      "type": "android.widget.LinearLayout",
+      "orientation": "vertical",
+      "backgroundColor": "#ffffff",
+      "padding": 32,
+      "margin": 12,
+      "width": "match_parent",
+      "height": "wrap_content",
+      "gravity": "center",
+      "fadeIn": true,
+      "children": [
+        {
+          "type": "android.widget.TextView",
+          "text": "💬 Hybrid Chat",
+          "textSize": 26,
+          "textColor": "#1e293b",
+          "gravity": "center"
+        },
+        {
+          "type": "android.widget.TextView",
+          "text": "Instant messaging for friends and teams. Secure, fast, and simple.",
+          "textSize": 15,
+          "textColor": "#6b7280",
+          "gravity": "center",
+          "margin": 12
+        },
+        {
+          "type": "android.widget.LinearLayout",
+          "orientation": "vertical",
+          "gravity": "center",
+          "margin": 20,
+          "children": [
+            {
+              "type": "android.widget.Button",
+              "text": "🚀 Start Chatting",
+              "backgroundColor": "#4f46e5",
+              "textColor": "#ffffff",
+              "padding": 18,
+              "textSize": 16,
+              "fadeIn": true,
+              "action": {
+                "type": "conditional",
+                "checkKey": "hc_profile",
+                "ifTrue": {
+                  "type": "navigate",
+                  "target": "home.json"
+                },
+                "ifFalse": {
+                  "type": "navigate",
+                  "target": "register.json"
+                }
+              }
+            },
+            {
+              "type": "android.widget.Button",
+              "text": "🗑 Remove Account",
+              "backgroundColor": "#e11d48",
+              "textColor": "#ffffff",
+              "padding": 16,
+              "textSize": 15,
+              "margin": 8,
+              "action": {
+                "type": "remove",
+                "key": "hc_profile"
+              }
+            }
+          ]
+        },
+        {
+          "type": "android.widget.TextView",
+          "text": "© 2025 Dominex Macedon",
+          "textColor": "#9ca3af",
+          "textSize": 13,
+          "gravity": "center",
+          "margin": 20
+        }
+      ]
     }
   ]
 }
