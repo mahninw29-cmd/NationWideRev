@@ -1,0 +1,35 @@
+{
+  "page": {
+    "title": "Next Page",
+    "backgroundColor": "#FFFFFF",
+    "padding": 16,
+    "layout": "column",
+    "children": [
+      {
+        "type": "text",
+        "value": "🌈 You’re on Page 2!",
+        "style": {
+          "fontSize": 22,
+          "color": "#000000",
+          "fontWeight": "bold",
+          "paddingBottom": 12
+        }
+      },
+      {
+        "type": "text",
+        "value": "This page also came directly from JSON."
+      },
+      {
+        "type": "button",
+        "label": "Go Back Home",
+        "action": {
+          "type": "navigate",
+          "target": "index.json"
+        },
+        "style": {
+          "marginTop": 12
+        }
+      }
+    ]
+  }
+}
