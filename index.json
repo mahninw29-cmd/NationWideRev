@@ -1,88 +1,69 @@
 {
-  "type": "android.widget.LinearLayout",
-  "orientation": "vertical",
-  "backgroundColor": "#f3f4f6",
-  "padding": 24,
-  "gravity": "center",
-  "fadeIn": true,
-  "children": [
-    {
-      "type": "android.widget.LinearLayout",
-      "orientation": "vertical",
-      "backgroundColor": "#ffffff",
-      "padding": 32,
-      "margin": 12,
-      "width": "match_parent",
-      "height": "wrap_content",
-      "gravity": "center",
-      "fadeIn": true,
-      "children": [
-        {
-          "type": "android.widget.TextView",
-          "text": "💬 Hybrid Chat",
-          "textSize": 26,
-          "textColor": "#1e293b",
-          "gravity": "center"
-        },
-        {
-          "type": "android.widget.TextView",
-          "text": "Instant messaging for friends and teams. Secure, fast, and simple.",
-          "textSize": 15,
-          "textColor": "#6b7280",
-          "gravity": "center",
-          "margin": 12
-        },
-        {
-          "type": "android.widget.LinearLayout",
-          "orientation": "vertical",
-          "gravity": "center",
-          "margin": 20,
-          "children": [
-            {
-              "type": "android.widget.Button",
-              "text": "🚀 Start Chatting",
-              "backgroundColor": "#4f46e5",
-              "textColor": "#ffffff",
-              "padding": 18,
-              "textSize": 16,
-              "fadeIn": true,
-              "action": {
-                "type": "conditional",
-                "checkKey": "hc_profile",
-                "ifTrue": {
-                  "type": "navigate",
-                  "target": "home.json"
-                },
-                "ifFalse": {
-                  "type": "navigate",
-                  "target": "register.json"
-                }
-              }
-            },
-            {
-              "type": "android.widget.Button",
-              "text": "🗑 Remove Account",
-              "backgroundColor": "#e11d48",
-              "textColor": "#ffffff",
-              "padding": 16,
-              "textSize": 15,
-              "margin": 8,
-              "action": {
-                "type": "remove",
-                "key": "hc_profile"
-              }
-            }
-          ]
-        },
-        {
-          "type": "android.widget.TextView",
-          "text": "© 2025 Dominex Macedon",
-          "textColor": "#9ca3af",
-          "textSize": 13,
-          "gravity": "center",
-          "margin": 20
+  "page": {
+    "title": "Sillia — Dynamic JSON App",
+    "backgroundColor": "#FAFAFA",
+    "padding": 16,
+    "layout": "column",
+    "children": [
+      {
+        "type": "text",
+        "value": "🌸 Welcome to Sillia",
+        "style": {
+          "fontSize": 24,
+          "color": "#222222",
+          "fontWeight": "bold",
+          "paddingBottom": 8
         }
-      ]
-    }
-  ]
+      },
+      {
+        "type": "text",
+        "value": "This app is fully powered by JSON. No native layouts, no XML, no coding changes — everything you see is rendered from this file!"
+      },
+      {
+        "type": "image",
+        "src": "https://picsum.photos/800/300",
+        "style": {
+          "cornerRadius": 12,
+          "marginVertical": 16
+        }
+      },
+      {
+        "type": "button",
+        "label": "Show Toast",
+        "action": {
+          "type": "toast",
+          "message": "Hello from JSON!"
+        }
+      },
+      {
+        "type": "button",
+        "label": "Open Google",
+        "action": {
+          "type": "openUrl",
+          "url": "https://google.com"
+        },
+        "style": {
+          "marginTop": 12
+        }
+      },
+      {
+        "type": "button",
+        "label": "Go to Next Page",
+        "action": {
+          "type": "navigate",
+          "target": "page2.json"
+        },
+        "style": {
+          "marginTop": 12
+        }
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "text",
+        "value": "💡 Tip: You can design new screens by editing JSON files only."
+      }
+    ]
+  }
 }
