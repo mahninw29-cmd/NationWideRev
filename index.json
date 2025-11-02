@@ -1,69 +1,31 @@
 {
-  "page": {
-    "title": "Sillia — Dynamic JSON App",
-    "backgroundColor": "#FAFAFA",
-    "padding": 16,
-    "layout": "column",
-    "children": [
-      {
-        "type": "text",
-        "value": "🌸 Welcome to Sillia",
-        "style": {
-          "fontSize": 24,
-          "color": "#222222",
-          "fontWeight": "bold",
-          "paddingBottom": 8
-        }
-      },
-      {
-        "type": "text",
-        "value": "This app is fully powered by JSON. No native layouts, no XML, no coding changes — everything you see is rendered from this file!"
-      },
-      {
-        "type": "image",
-        "src": "https://picsum.photos/800/300",
-        "style": {
-          "cornerRadius": 12,
-          "marginVertical": 16
-        }
-      },
-      {
-        "type": "button",
-        "label": "Show Toast",
-        "action": {
-          "type": "toast",
-          "message": "Hello from JSON!"
-        }
-      },
-      {
-        "type": "button",
-        "label": "Open Google",
-        "action": {
-          "type": "openUrl",
-          "url": "https://google.com"
-        },
-        "style": {
-          "marginTop": 12
-        }
-      },
-      {
-        "type": "button",
-        "label": "Go to Next Page",
-        "action": {
-          "type": "navigate",
-          "target": "page2.json"
-        },
-        "style": {
-          "marginTop": 12
-        }
-      },
-      {
-        "type": "divider"
-      },
-      {
-        "type": "text",
-        "value": "💡 Tip: You can design new screens by editing JSON files only."
-      }
-    ]
-  }
+  "Column": [
+    {
+      "Text": "Hello, World!"
+    },
+    {
+      "Spacer": {}
+    },
+    {
+      "Row": [
+        { "Button": "Click Me" },
+        { "Text": "Row Item 2" }
+      ]
+    },
+    {
+      "Image": {}
+    },
+    {
+      "OutlinedButton": {}
+    },
+    {
+      "TextField": {}
+    },
+    {
+      "Checkbox": {}
+    },
+    {
+      "CircularProgressIndicator": {}
+    }
+  ]
 }
