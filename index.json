@@ -1,15 +1,11 @@
 {
-  "components": [
-    {
-      "name": "HelloWorld",
-      "type": "Text",
-      "text": "Hello World",
-      "fontSize": 24,
-      "fontWeight": "Bold",
-      "textColor": "#000000",
-      "backgroundColor": "#FFFFFF",
-      "padding": 16,
-      "alignment": "Center"
-    }
+  "type": "Column",
+  "children": [
+    { "type": "Text", "text": "Hello World" },
+    { "type": "Button", "text": "Click Me" },
+    { "type": "Row", "children": [
+      { "type": "Text", "text": "Row 1" },
+      { "type": "Text", "text": "Row 2" }
+    ]}
   ]
 }
