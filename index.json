@@ -1,31 +1,20 @@
 {
-  "Column": [
-    {
-      "Text": "Hello, World!"
-    },
-    {
-      "Spacer": {}
-    },
-    {
-      "Row": [
-        { "Button": "Click Me" },
-        { "Text": "Row Item 2" }
-      ]
-    },
-    {
-      "Image": {}
-    },
-    {
-      "OutlinedButton": {}
-    },
-    {
-      "TextField": {}
-    },
-    {
-      "Checkbox": {}
-    },
-    {
-      "CircularProgressIndicator": {}
-    }
+  "components": [
+    "Column",
+    "Row",
+    "Box",
+    "Text",
+    "Button",
+    "Checkbox",
+    "Slider",
+    "Image",
+    "CircularProgressIndicator",
+    "LinearProgressIndicator",
+    "TopAppBar",
+    "Snackbar",
+    "AlertDialog",
+    "AnimatedVisibility",
+    "Crossfade",
+    "AnimatedContent"
   ]
 }
