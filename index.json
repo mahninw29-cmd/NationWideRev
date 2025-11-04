@@ -1,11 +1,59 @@
 {
   "type": "Column",
   "children": [
-    { "type": "Text", "text": "Hello World" },
-    { "type": "Button", "text": "Click Me" },
-    { "type": "Row", "children": [
-      { "type": "Text", "text": "Row 1" },
-      { "type": "Text", "text": "Row 2" }
-    ]}
+    {
+      "type": "Text",
+      "text": "Welcome to Dynamic UI",
+      "fontSize": 28,
+      "textAlign": "Center"
+    },
+    {
+      "type": "Spacer",
+      "height": 16
+    },
+    {
+      "type": "Text",
+      "text": "Hello World! This is dynamically rendered from JSON.",
+      "fontSize": 20,
+      "textAlign": "Center"
+    },
+    {
+      "type": "Spacer",
+      "height": 24
+    },
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Button",
+          "text": "Click Me"
+        },
+        {
+          "type": "Spacer",
+          "width": 16
+        },
+        {
+          "type": "Button",
+          "text": "Another Button"
+        }
+      ]
+    },
+    {
+      "type": "Spacer",
+      "height": 24
+    },
+    {
+      "type": "Image",
+      "size": 120,
+      "contentDescription": "Sample Image"
+    },
+    {
+      "type": "Spacer",
+      "height": 16
+    },
+    {
+      "type": "ClickableText",
+      "text": "Tap Here!"
+    }
   ]
 }
