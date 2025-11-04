@@ -1,20 +1,15 @@
 {
   "components": [
-    "Column",
-    "Row",
-    "Box",
-    "Text",
-    "Button",
-    "Checkbox",
-    "Slider",
-    "Image",
-    "CircularProgressIndicator",
-    "LinearProgressIndicator",
-    "TopAppBar",
-    "Snackbar",
-    "AlertDialog",
-    "AnimatedVisibility",
-    "Crossfade",
-    "AnimatedContent"
+    {
+      "name": "HelloWorld",
+      "type": "Text",
+      "text": "Hello World",
+      "fontSize": 24,
+      "fontWeight": "Bold",
+      "textColor": "#000000",
+      "backgroundColor": "#FFFFFF",
+      "padding": 16,
+      "alignment": "Center"
+    }
   ]
 }
