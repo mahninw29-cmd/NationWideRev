@@ -1,59 +1,90 @@
 {
   "type": "Column",
+  "padding": 16,
   "children": [
     {
-      "type": "Text",
-      "text": "Welcome to Dynamic UI",
-      "fontSize": 28,
-      "textAlign": "Center"
+      "type": "TopAppBar",
+      "title": "Sillia Dynamic UI"
     },
     {
       "type": "Spacer",
-      "height": 16
+      "height": 20
     },
     {
-      "type": "Text",
-      "text": "Hello World! This is dynamically rendered from JSON.",
-      "fontSize": 20,
-      "textAlign": "Center"
-    },
-    {
-      "type": "Spacer",
-      "height": 24
-    },
-    {
-      "type": "Row",
+      "type": "Card",
+      "padding": 16,
       "children": [
         {
-          "type": "Button",
-          "text": "Click Me"
-        },
-        {
-          "type": "Spacer",
-          "width": 16
-        },
-        {
-          "type": "Button",
-          "text": "Another Button"
+          "type": "Column",
+          "children": [
+            {
+              "type": "Image",
+              "url": "https://cdn-icons-png.flaticon.com/512/4712/4712023.png",
+              "contentDescription": "App Logo",
+              "size": 100
+            },
+            {
+              "type": "Spacer",
+              "height": 12
+            },
+            {
+              "type": "Text",
+              "text": "Hello, World! 🌍",
+              "fontSize": 24,
+              "padding": 8
+            },
+            {
+              "type": "Text",
+              "text": "This UI is built dynamically from JSON using Jetpack Compose.",
+              "fontSize": 16,
+              "padding": 8
+            },
+            {
+              "type": "Spacer",
+              "height": 12
+            },
+            {
+              "type": "Button",
+              "text": "Click Me"
+            }
+          ]
         }
       ]
     },
     {
       "type": "Spacer",
-      "height": 24
+      "height": 20
     },
     {
-      "type": "Image",
-      "size": 120,
-      "contentDescription": "Sample Image"
-    },
-    {
-      "type": "Spacer",
-      "height": 16
-    },
-    {
-      "type": "ClickableText",
-      "text": "Tap Here!"
+      "type": "Row",
+      "children": [
+        {
+          "type": "Image",
+          "url": "https://cdn-icons-png.flaticon.com/512/733/733547.png",
+          "contentDescription": "GitHub Icon",
+          "size": 32
+        },
+        {
+          "type": "Spacer",
+          "width": 8
+        },
+        {
+          "type": "Image",
+          "url": "https://cdn-icons-png.flaticon.com/512/733/733585.png",
+          "contentDescription": "Twitter Icon",
+          "size": 32
+        },
+        {
+          "type": "Spacer",
+          "width": 8
+        },
+        {
+          "type": "Image",
+          "url": "https://cdn-icons-png.flaticon.com/512/1384/1384060.png",
+          "contentDescription": "YouTube Icon",
+          "size": 32
+        }
+      ]
     }
   ]
 }
