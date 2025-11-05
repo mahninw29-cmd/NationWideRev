@@ -6,28 +6,30 @@
       "route": "home",
       "screen": {
         "type": "Column",
+        "padding": 16,
         "children": [
           {
             "type": "Text",
-            "text": "Welcome",
-            "fontSize": 24,
-            "padding": 16
+            "text": "Welcome to Myanmar Info App",
+            "fontSize": 24
           },
           {
-            "type": "Text",
-            "text": "Learn about Burma and Daw Aung San Suu Kyi (or) Mom Suu",
-            "fontSize": 18,
-            "padding": 16
+            "type": "Spacer",
+            "height": 16
           },
           {
-            "type": "NavButton",
-            "text": "About Burma",
-            "route": "burma"
+            "type": "Button",
+            "text": "Learn about Burma",
+            "action": "navigate:burma"
           },
           {
-            "type": "NavButton",
-            "text": "About Daw Aung San Suu Kyi (or) Mom Suu",
-            "route": "aungsan"
+            "type": "Spacer",
+            "height": 8
+          },
+          {
+            "type": "Button",
+            "text": "Learn about Daw Aung San Suu Kyi",
+            "action": "navigate:suukyi"
           }
         ]
       }
@@ -36,62 +38,60 @@
       "route": "burma",
       "screen": {
         "type": "Column",
+        "padding": 16,
         "children": [
           {
             "type": "Text",
-            "text": "Burma (Myanmar) Overview",
-            "fontSize": 24,
-            "padding": 16
+            "text": "About Burma (Myanmar)",
+            "fontSize": 24
+          },
+          {
+            "type": "Spacer",
+            "height": 12
           },
           {
             "type": "Text",
-            "text": "Burma, officially Myanmar, is a country in Southeast Asia. "
-                    + "It has a rich history of kingdoms and colonial periods. "
-                    + "The culture is deeply influenced by Buddhism.",
-            "padding": 16
+            "text": "Myanmar, also known as Burma, is a country in Southeast Asia with a rich history and diverse culture."
           },
           {
-            "type": "Image",
-            "url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Flag_of_Myanmar.svg",
-            "size": 150,
-            "contentDescription": "Flag of Myanmar"
+            "type": "Spacer",
+            "height": 12
           },
           {
-            "type": "NavButton",
+            "type": "Button",
             "text": "Back to Home",
-            "route": "home"
+            "action": "navigate:home"
           }
         ]
       }
     },
     {
-      "route": "aungsan",
+      "route": "suukyi",
       "screen": {
         "type": "Column",
+        "padding": 16,
         "children": [
           {
             "type": "Text",
-            "text": "Daw Aung San Suu Kyi (or) Mom Suu",
-            "fontSize": 24,
-            "padding": 16
+            "text": "About Daw Aung San Suu Kyi",
+            "fontSize": 24
+          },
+          {
+            "type": "Spacer",
+            "height": 12
           },
           {
             "type": "Text",
-            "text": "Daw Aung San Suu Kyi (or) Mom Suu is a Burmese politician, diplomat, and author, "
-                    + "known for her non-violent struggle for democracy in Myanmar. "
-                    + "She received the Nobel Peace Prize in 1991.",
-            "padding": 16
+            "text": "Daw Aung San Suu Kyi, also known as Mom Suu, is a Burmese politician, diplomat, and Nobel Peace Prize laureate. She has been a key figure in Myanmar's pro-democracy movement."
           },
           {
-            "type": "Image",
-            "url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Aung_San_Suu_Kyi_2016.jpg",
-            "size": 150,
-            "contentDescription": "Aung San Suu Kyi"
+            "type": "Spacer",
+            "height": 12
           },
           {
-            "type": "NavButton",
+            "type": "Button",
             "text": "Back to Home",
-            "route": "home"
+            "action": "navigate:home"
           }
         ]
       }
