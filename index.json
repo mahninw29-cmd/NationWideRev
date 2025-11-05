@@ -1,90 +1,121 @@
 {
-  "type": "Column",
-  "padding": 16,
-  "children": [
+  "type": "NavHost",
+  "startDestination": "home",
+  "routes": [
     {
-      "type": "TopAppBar",
-      "title": "Sillia Dynamic UI"
-    },
-    {
-      "type": "Spacer",
-      "height": 20
-    },
-    {
-      "type": "Card",
-      "padding": 16,
-      "children": [
-        {
-          "type": "Column",
-          "children": [
-            {
-              "type": "Image",
-              "url": "https://cdn-icons-png.flaticon.com/512/4712/4712023.png",
-              "contentDescription": "App Logo",
-              "size": 100
-            },
-            {
-              "type": "Spacer",
-              "height": 12
-            },
-            {
-              "type": "Text",
-              "text": "Hello, World! 🌍",
-              "fontSize": 24,
-              "padding": 8
-            },
-            {
-              "type": "Text",
-              "text": "This UI is built dynamically from JSON using Jetpack Compose.",
-              "fontSize": 16,
-              "padding": 8
-            },
-            {
-              "type": "Spacer",
-              "height": 12
-            },
-            {
-              "type": "Button",
-              "text": "Click Me"
+      "route": "home",
+      "screen": {
+        "type": "Column",
+        "padding": 24,
+        "children": [
+          {
+            "type": "Image",
+            "url": "https://cdn-icons-png.flaticon.com/512/2991/2991148.png",
+            "size": 96,
+            "contentDescription": "App Logo"
+          },
+          {
+            "type": "Text",
+            "text": "Welcome to Sillia",
+            "fontSize": 26,
+            "padding": 16
+          },
+          {
+            "type": "Text",
+            "text": "Dynamic UI powered by JSON and Compose",
+            "fontSize": 16,
+            "padding": 8
+          },
+          {
+            "type": "Button",
+            "text": "About App",
+            "action": {
+              "type": "navigate",
+              "destination": "about"
             }
-          ]
-        }
-      ]
+          },
+          {
+            "type": "Button",
+            "text": "View Profile",
+            "action": {
+              "type": "navigate",
+              "destination": "profile"
+            }
+          }
+        ]
+      }
     },
     {
-      "type": "Spacer",
-      "height": 20
+      "route": "about",
+      "screen": {
+        "type": "Column",
+        "padding": 16,
+        "children": [
+          {
+            "type": "TopAppBar",
+            "title": "About Sillia"
+          },
+          {
+            "type": "Text",
+            "text": "Sillia demonstrates dynamic UI generation using Jetpack Compose and JSON schemas.",
+            "fontSize": 18,
+            "padding": 12
+          },
+          {
+            "type": "Image",
+            "url": "https://cdn-icons-png.flaticon.com/512/888/888879.png",
+            "size": 120,
+            "contentDescription": "About Illustration"
+          },
+          {
+            "type": "Button",
+            "text": "Go Home",
+            "action": {
+              "type": "navigate",
+              "destination": "home"
+            }
+          }
+        ]
+      }
     },
     {
-      "type": "Row",
-      "children": [
-        {
-          "type": "Image",
-          "url": "https://cdn-icons-png.flaticon.com/512/733/733547.png",
-          "contentDescription": "GitHub Icon",
-          "size": 32
-        },
-        {
-          "type": "Spacer",
-          "width": 8
-        },
-        {
-          "type": "Image",
-          "url": "https://cdn-icons-png.flaticon.com/512/733/733585.png",
-          "contentDescription": "Twitter Icon",
-          "size": 32
-        },
-        {
-          "type": "Spacer",
-          "width": 8
-        },
-        {
-          "type": "Image",
-          "url": "https://cdn-icons-png.flaticon.com/512/1384/1384060.png",
-          "contentDescription": "YouTube Icon",
-          "size": 32
-        }
-      ]
+      "route": "profile",
+      "screen": {
+        "type": "Column",
+        "padding": 20,
+        "children": [
+          {
+            "type": "TopAppBar",
+            "title": "Your Profile"
+          },
+          {
+            "type": "Image",
+            "url": "https://cdn-icons-png.flaticon.com/512/1077/1077012.png",
+            "size": 120,
+            "contentDescription": "Profile Picture"
+          },
+          {
+            "type": "Text",
+            "text": "Username: @sillia_user",
+            "fontSize": 18,
+            "padding": 8
+          },
+          {
+            "type": "Text",
+            "text": "Email: user@sillia.dev",
+            "fontSize": 16,
+            "padding": 8
+          },
+          {
+            "type": "OutlinedButton",
+            "text": "Back to Home",
+            "action": {
+              "type": "navigate",
+              "destination": "home"
+            }
+          }
+        ]
+      }
     }
   ]
 }
