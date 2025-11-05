@@ -9,38 +9,68 @@
         "padding": 24,
         "children": [
           {
-            "type": "Image",
-            "url": "https://cdn-icons-png.flaticon.com/512/2991/2991148.png",
-            "size": 96,
-            "contentDescription": "App Logo"
+            "type": "TopAppBar",
+            "title": "Home"
+          },
+          {
+            "type": "Spacer",
+            "height": 16
           },
           {
             "type": "Text",
-            "text": "Welcome to Sillia",
-            "fontSize": 26,
-            "padding": 16
+            "text": "Welcome to Sillia!",
+            "fontSize": 24,
+            "padding": 8
           },
           {
             "type": "Text",
-            "text": "Dynamic UI powered by JSON and Compose",
+            "text": "This screen is fully generated using Jetpack Compose Material 3 components and JSON configuration.",
             "fontSize": 16,
             "padding": 8
           },
           {
-            "type": "Button",
-            "text": "About App",
-            "action": {
-              "type": "navigate",
-              "destination": "about"
-            }
+            "type": "Spacer",
+            "height": 24
           },
           {
             "type": "Button",
-            "text": "View Profile",
-            "action": {
-              "type": "navigate",
-              "destination": "profile"
-            }
+            "text": "Go to About",
+            "action": "navigate:about"
+          },
+          {
+            "type": "Spacer",
+            "height": 12
+          },
+          {
+            "type": "OutlinedButton",
+            "text": "Show Snackbar",
+            "action": "toast:Hello from Home!"
+          },
+          {
+            "type": "Spacer",
+            "height": 32
+          },
+          {
+            "type": "Card",
+            "padding": 8,
+            "children": [
+              {
+                "type": "Column",
+                "padding": 16,
+                "children": [
+                  {
+                    "type": "Text",
+                    "text": "Tip",
+                    "fontSize": 18
+                  },
+                  {
+                    "type": "Text",
+                    "text": "Modify index.json remotely to change the app layout instantly!",
+                    "fontSize": 14
+                  }
+                ]
+              }
+            ]
           }
         ]
       }
@@ -49,70 +79,36 @@
       "route": "about",
       "screen": {
         "type": "Column",
-        "padding": 16,
+        "padding": 24,
         "children": [
           {
             "type": "TopAppBar",
-            "title": "About Sillia"
+            "title": "About"
+          },
+          {
+            "type": "Spacer",
+            "height": 16
           },
           {
             "type": "Text",
-            "text": "Sillia demonstrates dynamic UI generation using Jetpack Compose and JSON schemas.",
-            "fontSize": 18,
-            "padding": 12
-          },
-          {
-            "type": "Image",
-            "url": "https://cdn-icons-png.flaticon.com/512/888/888879.png",
-            "size": 120,
-            "contentDescription": "About Illustration"
-          },
-          {
-            "type": "Button",
-            "text": "Go Home",
-            "action": {
-              "type": "navigate",
-              "destination": "home"
-            }
-          }
-        ]
-      }
-    },
-    {
-      "route": "profile",
-      "screen": {
-        "type": "Column",
-        "padding": 20,
-        "children": [
-          {
-            "type": "TopAppBar",
-            "title": "Your Profile"
-          },
-          {
-            "type": "Image",
-            "url": "https://cdn-icons-png.flaticon.com/512/1077/1077012.png",
-            "size": 120,
-            "contentDescription": "Profile Picture"
-          },
-          {
-            "type": "Text",
-            "text": "Username: @sillia_user",
-            "fontSize": 18,
+            "text": "About This App",
+            "fontSize": 22,
             "padding": 8
           },
           {
             "type": "Text",
-            "text": "Email: user@sillia.dev",
+            "text": "This app uses Jetpack Compose's built-in Material 3 design system. Every UI element you see is dynamically rendered from JSON.",
             "fontSize": 16,
             "padding": 8
           },
           {
+            "type": "Spacer",
+            "height": 24
+          },
+          {
             "type": "OutlinedButton",
             "text": "Back to Home",
-            "action": {
-              "type": "navigate",
-              "destination": "home"
-            }
+            "action": "navigate:home"
           }
         ]
       }
