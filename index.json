@@ -6,129 +6,92 @@
       "route": "home",
       "screen": {
         "type": "Column",
-        "padding": 24,
         "children": [
           {
-            "type": "TopAppBar",
-            "title": "Myanmar Information"
+            "type": "Text",
+            "text": "Welcome",
+            "fontSize": 24,
+            "padding": 16
           },
-          { "type": "Spacer", "height": 16 },
           {
             "type": "Text",
-            "text": "Explore background information about Myanmar’s recent political history, its military leadership, and efforts toward democracy.",
-            "fontSize": 16,
-            "padding": 8
+            "text": "Learn about Burma and Daw Aung San Suu Kyi (or) Mom Suu",
+            "fontSize": 18,
+            "padding": 16
           },
-          { "type": "Spacer", "height": 16 },
           {
-            "type": "Button",
-            "text": "About Myanmar",
-            "action": "navigate:about"
+            "type": "NavButton",
+            "text": "About Burma",
+            "route": "burma"
           },
-          { "type": "Spacer", "height": 12 },
           {
-            "type": "Button",
-            "text": "Military Leadership",
-            "action": "navigate:military"
-          },
-          { "type": "Spacer", "height": 12 },
-          {
-            "type": "OutlinedButton",
-            "text": "Democracy and Reform",
-            "action": "navigate:reform"
+            "type": "NavButton",
+            "text": "About Daw Aung San Suu Kyi (or) Mom Suu",
+            "route": "aungsan"
           }
         ]
       }
     },
     {
-      "route": "about",
+      "route": "burma",
       "screen": {
         "type": "Column",
-        "padding": 24,
         "children": [
-          { "type": "TopAppBar", "title": "About Myanmar" },
-          { "type": "Spacer", "height": 16 },
+          {
+            "type": "Text",
+            "text": "Burma (Myanmar) Overview",
+            "fontSize": 24,
+            "padding": 16
+          },
+          {
+            "type": "Text",
+            "text": "Burma, officially Myanmar, is a country in Southeast Asia. "
+                    + "It has a rich history of kingdoms and colonial periods. "
+                    + "The culture is deeply influenced by Buddhism.",
+            "padding": 16
+          },
           {
             "type": "Image",
-            "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Flag_of_Myanmar.svg/2560px-Flag_of_Myanmar.svg.png",
-            "size": 120
+            "url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Flag_of_Myanmar.svg",
+            "size": 150,
+            "contentDescription": "Flag of Myanmar"
           },
           {
-            "type": "Text",
-            "text": "Myanmar, formerly known as Burma, is a Southeast Asian nation with a complex political and social history. The country has experienced both civilian and military rule since its independence in 1948.",
-            "fontSize": 16,
-            "padding": 8
-          },
-          {
-            "type": "OutlinedButton",
+            "type": "NavButton",
             "text": "Back to Home",
-            "action": "navigate:home"
+            "route": "home"
           }
         ]
       }
     },
     {
-      "route": "military",
+      "route": "aungsan",
       "screen": {
         "type": "Column",
-        "padding": 24,
         "children": [
-          { "type": "TopAppBar", "title": "Military Leadership" },
-          { "type": "Spacer", "height": 16 },
+          {
+            "type": "Text",
+            "text": "Daw Aung San Suu Kyi (or) Mom Suu",
+            "fontSize": 24,
+            "padding": 16
+          },
+          {
+            "type": "Text",
+            "text": "Daw Aung San Suu Kyi (or) Mom Suu is a Burmese politician, diplomat, and author, "
+                    + "known for her non-violent struggle for democracy in Myanmar. "
+                    + "She received the Nobel Peace Prize in 1991.",
+            "padding": 16
+          },
           {
             "type": "Image",
-            "url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Myanmar_Armed_Forces_emblem.png",
-            "size": 100
+            "url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Aung_San_Suu_Kyi_2016.jpg",
+            "size": 150,
+            "contentDescription": "Aung San Suu Kyi"
           },
           {
-            "type": "Text",
-            "text": "Myanmar’s military, known as the Tatmadaw, has played a major role in the country’s governance for decades. Analysts often discuss its political influence, human rights record, and control of economic sectors.",
-            "fontSize": 16,
-            "padding": 8
-          },
-          {
-            "type": "Text",
-            "text": "This screen provides an overview of the institution’s role, leadership structure, and the impact of military governance on Myanmar’s development and civil society.",
-            "fontSize": 16,
-            "padding": 8
-          },
-          {
-            "type": "OutlinedButton",
-            "text": "Learn About Reform Efforts",
-            "action": "navigate:reform"
-          },
-          {
-            "type": "OutlinedButton",
+            "type": "NavButton",
             "text": "Back to Home",
-            "action": "navigate:home"
-          }
-        ]
-      }
-    },
-    {
-      "route": "reform",
-      "screen": {
-        "type": "Column",
-        "padding": 24,
-        "children": [
-          { "type": "TopAppBar", "title": "Democracy and Reform" },
-          { "type": "Spacer", "height": 16 },
-          {
-            "type": "Text",
-            "text": "Myanmar has undergone several attempts to transition toward democratic governance. Civil movements, international diplomacy, and regional cooperation have played roles in encouraging greater freedom and transparency.",
-            "fontSize": 16,
-            "padding": 8
-          },
-          {
-            "type": "Text",
-            "text": "Educational efforts and civic engagement remain key to supporting peaceful reform and human rights in the country.",
-            "fontSize": 16,
-            "padding": 8
-          },
-          {
-            "type": "OutlinedButton",
-            "text": "Back to Home",
-            "action": "navigate:home"
+            "route": "home"
           }
         ]
       }
