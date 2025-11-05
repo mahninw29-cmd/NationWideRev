@@ -10,67 +10,32 @@
         "children": [
           {
             "type": "TopAppBar",
-            "title": "Home"
+            "title": "Myanmar Information"
           },
-          {
-            "type": "Spacer",
-            "height": 16
-          },
+          { "type": "Spacer", "height": 16 },
           {
             "type": "Text",
-            "text": "Welcome to Sillia!",
-            "fontSize": 24,
-            "padding": 8
-          },
-          {
-            "type": "Text",
-            "text": "This screen is fully generated using Jetpack Compose Material 3 components and JSON configuration.",
+            "text": "Explore background information about Myanmar’s recent political history, its military leadership, and efforts toward democracy.",
             "fontSize": 16,
             "padding": 8
           },
-          {
-            "type": "Spacer",
-            "height": 24
-          },
+          { "type": "Spacer", "height": 16 },
           {
             "type": "Button",
-            "text": "Go to About",
+            "text": "About Myanmar",
             "action": "navigate:about"
           },
+          { "type": "Spacer", "height": 12 },
           {
-            "type": "Spacer",
-            "height": 12
+            "type": "Button",
+            "text": "Military Leadership",
+            "action": "navigate:military"
           },
+          { "type": "Spacer", "height": 12 },
           {
             "type": "OutlinedButton",
-            "text": "Show Snackbar",
-            "action": "toast:Hello from Home!"
-          },
-          {
-            "type": "Spacer",
-            "height": 32
-          },
-          {
-            "type": "Card",
-            "padding": 8,
-            "children": [
-              {
-                "type": "Column",
-                "padding": 16,
-                "children": [
-                  {
-                    "type": "Text",
-                    "text": "Tip",
-                    "fontSize": 18
-                  },
-                  {
-                    "type": "Text",
-                    "text": "Modify index.json remotely to change the app layout instantly!",
-                    "fontSize": 14
-                  }
-                ]
-              }
-            ]
+            "text": "Democracy and Reform",
+            "action": "navigate:reform"
           }
         ]
       }
@@ -81,29 +46,84 @@
         "type": "Column",
         "padding": 24,
         "children": [
+          { "type": "TopAppBar", "title": "About Myanmar" },
+          { "type": "Spacer", "height": 16 },
           {
-            "type": "TopAppBar",
-            "title": "About"
-          },
-          {
-            "type": "Spacer",
-            "height": 16
-          },
-          {
-            "type": "Text",
-            "text": "About This App",
-            "fontSize": 22,
-            "padding": 8
+            "type": "Image",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Flag_of_Myanmar.svg/2560px-Flag_of_Myanmar.svg.png",
+            "size": 120
           },
           {
             "type": "Text",
-            "text": "This app uses Jetpack Compose's built-in Material 3 design system. Every UI element you see is dynamically rendered from JSON.",
+            "text": "Myanmar, formerly known as Burma, is a Southeast Asian nation with a complex political and social history. The country has experienced both civilian and military rule since its independence in 1948.",
             "fontSize": 16,
             "padding": 8
           },
           {
-            "type": "Spacer",
-            "height": 24
+            "type": "OutlinedButton",
+            "text": "Back to Home",
+            "action": "navigate:home"
+          }
+        ]
+      }
+    },
+    {
+      "route": "military",
+      "screen": {
+        "type": "Column",
+        "padding": 24,
+        "children": [
+          { "type": "TopAppBar", "title": "Military Leadership" },
+          { "type": "Spacer", "height": 16 },
+          {
+            "type": "Image",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Myanmar_Armed_Forces_emblem.png",
+            "size": 100
+          },
+          {
+            "type": "Text",
+            "text": "Myanmar’s military, known as the Tatmadaw, has played a major role in the country’s governance for decades. Analysts often discuss its political influence, human rights record, and control of economic sectors.",
+            "fontSize": 16,
+            "padding": 8
+          },
+          {
+            "type": "Text",
+            "text": "This screen provides an overview of the institution’s role, leadership structure, and the impact of military governance on Myanmar’s development and civil society.",
+            "fontSize": 16,
+            "padding": 8
+          },
+          {
+            "type": "OutlinedButton",
+            "text": "Learn About Reform Efforts",
+            "action": "navigate:reform"
+          },
+          {
+            "type": "OutlinedButton",
+            "text": "Back to Home",
+            "action": "navigate:home"
+          }
+        ]
+      }
+    },
+    {
+      "route": "reform",
+      "screen": {
+        "type": "Column",
+        "padding": 24,
+        "children": [
+          { "type": "TopAppBar", "title": "Democracy and Reform" },
+          { "type": "Spacer", "height": 16 },
+          {
+            "type": "Text",
+            "text": "Myanmar has undergone several attempts to transition toward democratic governance. Civil movements, international diplomacy, and regional cooperation have played roles in encouraging greater freedom and transparency.",
+            "fontSize": 16,
+            "padding": 8
+          },
+          {
+            "type": "Text",
+            "text": "Educational efforts and civic engagement remain key to supporting peaceful reform and human rights in the country.",
+            "fontSize": 16,
+            "padding": 8
           },
           {
             "type": "OutlinedButton",
