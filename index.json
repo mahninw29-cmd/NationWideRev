@@ -1,40 +1,28 @@
 {
   "elements": [
     {
-      "type": "circle",
-      "x": 200,
-      "y": 300,
-      "radius": 100,
-      "color": "#FFFFFF",
+      "draw": [
+        { "type": "drawCircle", "x": 200, "y": 300, "radius": 50, "color": "#FF0000" },
+        { "type": "drawText", "x": 200, "y": 360, "text": "Hello", "color": "#FFFFFF", "fontSize": 40 }
+      ],
+      "hit": [
+        { "type": "circleHitTest", "x": 200, "y": 300, "radius": 50 }
+      ],
       "onTap": [
-        {
-          "type": "toast",
-          "message": "Circle tapped!"
-        }
+        { "type": "toast", "message": "Circle tapped!" },
+        { "type": "script", "code": "toast('JS Tap!')" }
       ]
     },
     {
-      "type": "rect",
-      "x": 100,
-      "y": 500,
-      "width": 300,
-      "height": 150,
-      "color": "#00FF00",
+      "draw": [
+        { "type": "drawRect", "x": 100, "y": 500, "width": 150, "height": 100, "color": "#00FF00" }
+      ],
+      "hit": [
+        { "type": "rectHitTest", "x": 100, "y": 500, "width": 150, "height": 100 }
+      ],
       "onTap": [
-        {
-          "type": "toast",
-          "message": "Rectangle tapped!"
-        }
+        { "type": "log", "message": "Rect tapped!" }
       ]
-    },
-    {
-      "type": "line",
-      "x1": 50,
-      "y1": 100,
-      "x2": 350,
-      "y2": 100,
-      "strokeWidth": 8,
-      "color": "#FF0000"
     }
   ]
 }
