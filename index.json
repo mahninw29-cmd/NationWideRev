@@ -1,56 +1,19 @@
-[
-  {
-    "id": "btn_profile",
-    "type": "box",
-    "x": 40,
-    "y": 100,
-    "width": 300,
-    "height": 80,
-    "color": "#6200EE",
-    "text": "Go to Profile",
-    "actions": [
-      {
-        "type": "navigate_to",
-        "payload": {
-          "url": "https://sillia.pages.dev/profile.json"
-        }
-      }
-    ]
-  },
-  {
-    "id": "btn_website",
-    "type": "box",
-    "x": 40,
-    "y": 220,
-    "width": 300,
-    "height": 80,
-    "color": "#03DAC5",
-    "text": "Open Website",
-    "actions": [
-      {
-        "type": "open_url",
-        "payload": {
-          "url": "https://sillia.pages.dev/"
-        }
-      }
-    ]
-  },
-  {
-    "id": "btn_toast",
-    "type": "box",
-    "x": 40,
-    "y": 340,
-    "width": 300,
-    "height": 80,
-    "color": "#FF5722",
-    "text": "Show Toast",
-    "actions": [
-      {
-        "type": "toast",
-        "payload": {
-          "message": "Welcome to Sillia!"
-        }
-      }
-    ]
-  }
-]
+{
+  "screens": [
+    {
+      "id": "home",
+      "title": "Welcome to Sillia",
+      "url": "https://sillia.pages.dev/home.json"
+    },
+    {
+      "id": "profile",
+      "title": "Profile",
+      "url": "https://sillia.pages.dev/profile.json"
+    },
+    {
+      "id": "settings",
+      "title": "Settings",
+      "url": "https://sillia.pages.dev/settings.json"
+    }
+  ]
+}
