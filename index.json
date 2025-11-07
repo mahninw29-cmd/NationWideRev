@@ -1,49 +1,94 @@
 [
   {
-    "id": "box1",
-    "type": "box",
-    "x": 20,
-    "y": 30,
-    "width": 100,
-    "height": 100,
-    "color": "#FF5733",
-    "text": "Hello",
-    "actions": [
-      {
-        "type": "print",
-        "payload": { "message": "Box1 clicked!" }
-      }
-    ]
-  },
-  {
-    "id": "rect1",
-    "type": "box",
-    "x": 150,
-    "y": 50,
-    "width": 200,
+    "id": "logo",
+    "type": "image",
+    "x": 120,
+    "y": 100,
+    "width": 80,
     "height": 80,
-    "color": "#33FF57",
-    "text": "Dynamic Rect",
+    "url": "https://sillia.pages.dev/assets/sillia.png"
+  },
+  {
+    "id": "button_google",
+    "type": "button",
+    "x": 60,
+    "y": 220,
+    "width": 240,
+    "height": 60,
+    "color": "#4285F4",
+    "radius": 16,
+    "text": "Continue with Sillia",
+    "textColor": "#FFFFFF",
+    "textSize": 18,
     "actions": [
       {
         "type": "print",
-        "payload": { "message": "Rectangle clicked!" }
+        "payload": {
+          "message": "Google Sign-In triggered!"
+        }
+      },
+      {
+        "type": "navigate_to",
+        "payload": {
+          "target": "profile_screen"
+        }
       }
     ]
   },
   {
-    "id": "text1",
-    "type": "text",
-    "x": 50,
-    "y": 200,
-    "width": 0,
-    "height": 0,
-    "text": "This is dynamic text",
-    "color": "#0000FF",
-    "actions": [
+    "id": "profile_screen",
+    "type": "layout",
+    "visible": false,
+    "components": [
       {
-        "type": "print",
-        "payload": { "message": "Text clicked!" }
+        "id": "profile_pic",
+        "type": "image",
+        "x": 140,
+        "y": 120,
+        "width": 100,
+        "height": 100,
+        "shape": "circle",
+        "url": "https://sillia.pages.dev/assets/sillia.png"
+      },
+      {
+        "id": "profile_name",
+        "type": "text",
+        "x": 100,
+        "y": 240,
+        "width": 200,
+        "height": 40,
+        "text": "Sillia User",
+        "textColor": "#000000",
+        "textSize": 20
+      },
+      {
+        "id": "profile_email",
+        "type": "text",
+        "x": 100,
+        "y": 280,
+        "width": 200,
+        "height": 40,
+        "text": "user@sillia.dev",
+        "textColor": "#555555",
+        "textSize": 16
+      },
+      {
+        "id": "back_button",
+        "type": "button",
+        "x": 120,
+        "y": 350,
+        "width": 160,
+        "height": 50,
+        "color": "#EEEEEE",
+        "radius": 12,
+        "text": "Go Back",
+        "textColor": "#333333",
+        "textSize": 16,
+        "actions": [
+          {
+            "type": "navigate_back"
+          }
+        ]
       }
     ]
   }
