@@ -1,63 +1,112 @@
 {
-  "elements": [
+  "draw": [
     {
-      "draw": "circle",
-      "props": {
-        "x": 200,
-        "y": 200,
-        "radius": 100,
-        "color": "#FF0000",
-        "hitScript": "console.log('Circle tapped!')"
-      },
-      "onTap": [
-        {
-          "type": "script",
-          "code": "console.log('Circle onTap executed')"
-        }
-      ]
+      "action": "drawRect",
+      "x": 60,
+      "y": 80,
+      "width": 260,
+      "height": 160,
+      "color": "#2980b9",
+      "alpha": 0.9
     },
     {
-      "draw": "rect",
-      "props": {
-        "x": 50,
-        "y": 400,
-        "width": 300,
-        "height": 150,
-        "color": "#00FF00",
-        "hitScript": "console.log('Rectangle tapped!')"
-      },
-      "onTap": [
-        {
-          "type": "script",
-          "code": "console.log('Rectangle onTap executed')"
-        }
-      ]
+      "action": "drawCircle",
+      "x": 500,
+      "y": 240,
+      "radius": 100,
+      "color": "#e74c3c",
+      "alpha": 0.85
     },
     {
-      "draw": "line",
-      "props": {
-        "x1": 100,
-        "y1": 100,
-        "x2": 400,
-        "y2": 400,
-        "strokeWidth": 8,
-        "color": "#0000FF"
+      "action": "drawOval",
+      "x": 200,
+      "y": 420,
+      "width": 260,
+      "height": 150,
+      "color": "#9b59b6"
+    },
+    {
+      "action": "drawLine",
+      "x1": 100,
+      "y1": 700,
+      "x2": 700,
+      "y2": 720,
+      "color": "#27ae60",
+      "strokeWidth": 12
+    },
+    {
+      "action": "drawArc",
+      "x": 450,
+      "y": 400,
+      "width": 150,
+      "height": 150,
+      "startAngle": 0,
+      "sweepAngle": 270,
+      "color": "#f1c40f",
+      "useCenter": true
+    },
+    {
+      "action": "drawText",
+      "text": "Hello from JSON Engine!",
+      "x": 100,
+      "y": 900,
+      "color": "#ecf0f1",
+      "fontSize": 52,
+      "bold": true
+    },
+    {
+      "action": "drawText",
+      "text": "No hardcoding, full freedom 🚀",
+      "x": 100,
+      "y": 980,
+      "color": "#f39c12",
+      "fontSize": 42,
+      "italic": true
+    },
+    {
+      "action": "drawImage",
+      "src": "https://picsum.photos/300",
+      "x": 350,
+      "y": 1050,
+      "width": 300,
+      "height": 300
+    },
+
+    {
+      "action": "rotate",
+      "degrees": 25,
+      "child": {
+        "action": "drawRect",
+        "x": 150,
+        "y": 1500,
+        "width": 200,
+        "height": 100,
+        "color": "#16a085"
       }
     },
     {
-      "draw": "text",
-      "props": {
-        "x": 100,
-        "y": 600,
-        "value": "Hello Compose!",
-        "color": "#FFFFFF",
-        "fontSize": 50
+      "action": "scale",
+      "sx": 1.5,
+      "sy": 1.5,
+      "child": {
+        "action": "drawCircle",
+        "x": 150,
+        "y": 1850,
+        "radius": 60,
+        "color": "#8e44ad"
       }
     },
     {
-      "draw": "custom",
-      "props": {
-        "script": "console.log('Custom element executed')"
+      "action": "translate",
+      "dx": 300,
+      "dy": 1900,
+      "child": {
+        "action": "drawText",
+        "text": "Translated JSON text",
+        "x": 0,
+        "y": 0,
+        "fontSize": 40,
+        "color": "#e67e22"
       }
     }
   ]
