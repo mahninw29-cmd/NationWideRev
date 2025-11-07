@@ -1,47 +1,32 @@
-[
-  {
-    "id": "profile_avatar",
-    "type": "circle",
-    "x": 140,
-    "y": 80,
-    "width": 120,
-    "height": 120,
-    "color": "#FF9800",
-    "text": "A"
-  },
-  {
-    "id": "profile_name",
-    "type": "box",
-    "x": 60,
-    "y": 220,
-    "width": 300,
-    "height": 60,
-    "color": "#2196F3",
-    "text": "John Doe"
-  },
-  {
-    "id": "profile_email",
-    "type": "box",
-    "x": 60,
-    "y": 300,
-    "width": 300,
-    "height": 60,
-    "color": "#4CAF50",
-    "text": "johndoe@example.com"
-  },
-  {
-    "id": "btn_back",
-    "type": "box",
-    "x": 60,
-    "y": 380,
-    "width": 300,
-    "height": 60,
-    "color": "#9E9E9E",
-    "text": "Go Back",
-    "actions": [
+{
+  "screen": {
+    "id": "profile",
+    "title": "Profile",
+    "elements": [
       {
-        "type": "navigate_back"
+        "type": "image",
+        "shape": "circle",
+        "source": "{profile_url}",
+        "size": 120
+      },
+      {
+        "type": "text",
+        "text": "Name: {name}",
+        "style": {
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "padding": 8
+        }
+      },
+      {
+        "type": "text",
+        "text": "Email: {email}",
+        "style": {
+          "fontSize": 16,
+          "color": "#666666",
+          "padding": 4
+        }
       }
     ]
   }
-]
+}
