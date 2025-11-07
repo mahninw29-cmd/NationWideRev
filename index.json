@@ -1,75 +1,84 @@
 {
   "commands": [
     {
-      "type": "draw",
       "action": "drawRect",
-      "x": 50,
-      "y": 300,
-      "width": 300,
-      "height": 60,
-      "color": "#4285F4",
-      "radius": 12,
-      "onClick": {
-        "type": "google_signin",
-        "successNavigate": "profile_screen"
-      }
+      "x": 0,
+      "y": 0,
+      "width": 1080,
+      "height": 1920,
+      "color": "#F5F5F5"
     },
     {
-      "type": "draw",
       "action": "drawText",
-      "text": "Continue with Google",
-      "x": 150,
-      "y": 335,
-      "color": "#FFFFFF",
-      "fontSize": 20,
-      "bold": true,
-      "align": "center"
+      "text": "Welcome to Starlight",
+      "x": 540,
+      "y": 200,
+      "fontSize": 80,
+      "align": "center",
+      "color": "#000000",
+      "bold": true
     },
     {
-      "type": "draw",
+      "action": "drawCircle",
+      "x": 540,
+      "y": 500,
+      "radius": 150,
+      "color": "#FFCC00",
+      "alpha": 0.8
+    },
+    {
       "action": "drawImage",
       "src": "https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg",
-      "x": 70,
-      "y": 310,
-      "width": 40,
-      "height": 40
+      "x": 340,
+      "y": 900,
+      "width": 400,
+      "height": 120
     },
-
     {
-      "type": "layout",
-      "id": "profile_screen",
-      "commands": [
-        {
-          "type": "draw",
-          "action": "drawCircle",
-          "x": 200,
-          "y": 200,
-          "radius": 60,
-          "color": "#CCCCCC",
-          "imageUrl": "{profileUrl}" 
-        },
-        {
-          "type": "draw",
-          "action": "drawText",
-          "text": "{name}",
-          "x": 200,
-          "y": 300,
-          "color": "#000000",
-          "fontSize": 24,
-          "bold": true,
-          "align": "center"
-        },
-        {
-          "type": "draw",
-          "action": "drawText",
-          "text": "{email}",
-          "x": 200,
-          "y": 340,
-          "color": "#666666",
-          "fontSize": 18,
-          "align": "center"
-        }
-      ]
+      "action": "drawRect",
+      "x": 340,
+      "y": 900,
+      "width": 400,
+      "height": 120,
+      "color": "#FFFFFF",
+      "alpha": 0.01
+    },
+    {
+      "action": "drawText",
+      "text": "Sign in with Google",
+      "x": 540,
+      "y": 975,
+      "fontSize": 40,
+      "align": "center",
+      "color": "#000000",
+      "bold": true
+    },
+    {
+      "action": "drawLine",
+      "x1": 100,
+      "y1": 1400,
+      "x2": 980,
+      "y2": 1400,
+      "color": "#000000",
+      "strokeWidth": 4
+    },
+    {
+      "action": "drawOval",
+      "x": 100,
+      "y": 1500,
+      "width": 880,
+      "height": 200,
+      "color": "#00CCFF"
+    },
+    {
+      "action": "drawText",
+      "text": "Get Started",
+      "x": 540,
+      "y": 1575,
+      "fontSize": 50,
+      "align": "center",
+      "color": "#FFFFFF",
+      "bold": true
     }
   ]
 }
