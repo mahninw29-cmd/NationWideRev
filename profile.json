@@ -1,32 +1,32 @@
-{
-  "screen": {
-    "id": "profile",
-    "title": "Profile",
-    "elements": [
-      {
-        "type": "image",
-        "shape": "circle",
-        "source": "{profile_url}",
-        "size": 120
-      },
-      {
-        "type": "text",
-        "text": "Name: {name}",
-        "style": {
-          "fontSize": 20,
-          "fontWeight": "bold",
-          "padding": 8
-        }
-      },
-      {
-        "type": "text",
-        "text": "Email: {email}",
-        "style": {
-          "fontSize": 16,
-          "color": "#666666",
-          "padding": 4
-        }
-      }
-    ]
+[
+  {
+    "id": "profile_image",
+    "type": "box",
+    "x": 100,
+    "y": 50,
+    "width": 120,
+    "height": 120,
+    "color": "#CCCCCC",
+    "text": ""
+  },
+  {
+    "id": "profile_name",
+    "type": "box",
+    "x": 50,
+    "y": 200,
+    "width": 250,
+    "height": 40,
+    "color": "#FFFFFF",
+    "text": "Name: {name}"
+  },
+  {
+    "id": "profile_email",
+    "type": "box",
+    "x": 50,
+    "y": 250,
+    "width": 250,
+    "height": 30,
+    "color": "#EEEEEE",
+    "text": "Email: {email}"
   }
-}
+]
