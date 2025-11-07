@@ -1,113 +1,75 @@
 {
-  "draw": [
+  "commands": [
     {
+      "type": "draw",
       "action": "drawRect",
-      "x": 60,
-      "y": 80,
-      "width": 260,
-      "height": 160,
-      "color": "#2980b9",
-      "alpha": 0.9
-    },
-    {
-      "action": "drawCircle",
-      "x": 500,
-      "y": 240,
-      "radius": 100,
-      "color": "#e74c3c",
-      "alpha": 0.85
-    },
-    {
-      "action": "drawOval",
-      "x": 200,
-      "y": 420,
-      "width": 260,
-      "height": 150,
-      "color": "#9b59b6"
-    },
-    {
-      "action": "drawLine",
-      "x1": 100,
-      "y1": 700,
-      "x2": 700,
-      "y2": 720,
-      "color": "#27ae60",
-      "strokeWidth": 12
-    },
-    {
-      "action": "drawArc",
-      "x": 450,
-      "y": 400,
-      "width": 150,
-      "height": 150,
-      "startAngle": 0,
-      "sweepAngle": 270,
-      "color": "#f1c40f",
-      "useCenter": true
-    },
-    {
-      "action": "drawText",
-      "text": "Hello from JSON Engine!",
-      "x": 100,
-      "y": 900,
-      "color": "#ecf0f1",
-      "fontSize": 52,
-      "bold": true
-    },
-    {
-      "action": "drawText",
-      "text": "No hardcoding, full freedom 🚀",
-      "x": 100,
-      "y": 980,
-      "color": "#f39c12",
-      "fontSize": 42,
-      "italic": true
-    },
-    {
-      "action": "drawImage",
-      "src": "https://picsum.photos/300",
-      "x": 350,
-      "y": 1050,
+      "x": 50,
+      "y": 300,
       "width": 300,
-      "height": 300
+      "height": 60,
+      "color": "#4285F4",
+      "radius": 12,
+      "onClick": {
+        "type": "google_sign_in",
+        "successNavigate": "profile_screen"
+      }
+    },
+    {
+      "type": "draw",
+      "action": "drawText",
+      "text": "Continue with Google",
+      "x": 150,
+      "y": 335,
+      "color": "#FFFFFF",
+      "fontSize": 20,
+      "bold": true,
+      "align": "center"
+    },
+    {
+      "type": "draw",
+      "action": "drawImage",
+      "src": "https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg",
+      "x": 70,
+      "y": 310,
+      "width": 40,
+      "height": 40
     },
 
     {
-      "action": "rotate",
-      "degrees": 25,
-      "child": {
-        "action": "drawRect",
-        "x": 150,
-        "y": 1500,
-        "width": 200,
-        "height": 100,
-        "color": "#16a085"
-      }
-    },
-    {
-      "action": "scale",
-      "sx": 1.5,
-      "sy": 1.5,
-      "child": {
-        "action": "drawCircle",
-        "x": 150,
-        "y": 1850,
-        "radius": 60,
-        "color": "#8e44ad"
-      }
-    },
-    {
-      "action": "translate",
-      "dx": 300,
-      "dy": 1900,
-      "child": {
-        "action": "drawText",
-        "text": "Translated JSON text",
-        "x": 0,
-        "y": 0,
-        "fontSize": 40,
-        "color": "#e67e22"
-      }
+      "type": "layout",
+      "id": "profile_screen",
+      "commands": [
+        {
+          "type": "draw",
+          "action": "drawCircle",
+          "x": 200,
+          "y": 200,
+          "radius": 60,
+          "color": "#CCCCCC",
+          "imageUrl": "{profileUrl}" 
+        },
+        {
+          "type": "draw",
+          "action": "drawText",
+          "text": "{name}",
+          "x": 200,
+          "y": 300,
+          "color": "#000000",
+          "fontSize": 24,
+          "bold": true,
+          "align": "center"
+        },
+        {
+          "type": "draw",
+          "action": "drawText",
+          "text": "{email}",
+          "x": 200,
+          "y": 340,
+          "color": "#666666",
+          "fontSize": 18,
+          "align": "center"
+        }
+      ]
     }
   ]
 }
