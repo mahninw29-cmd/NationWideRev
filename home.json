@@ -1,21 +1,17 @@
-{
-  "screen": {
-    "id": "home",
-    "title": "Welcome to Sillia",
-    "elements": [
+[
+  {
+    "id": "google_button",
+    "type": "box",
+    "x": 50,
+    "y": 100,
+    "width": 200,
+    "height": 50,
+    "color": "#4285F4",
+    "text": "Continue with Google",
+    "actions": [
       {
-        "type": "button",
-        "text": "Continue with Google",
-        "style": {
-          "backgroundColor": "#4285F4",
-          "textColor": "#FFFFFF",
-          "cornerRadius": 8,
-          "padding": 16
-        },
-        "action": {
-          "type": "google_sign_in"
-        }
+        "type": "google_sign_in"
       }
     ]
   }
-}
+]
