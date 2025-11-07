@@ -1,25 +1,72 @@
 [
   {
+    "id": "background",
+    "type": "box",
+    "x": 0,
+    "y": 0,
+    "width": 400,
+    "height": 800,
+    "color": "#F9FAFB"
+  },
+
+  {
     "id": "logo",
     "type": "image",
     "x": 120,
-    "y": 100,
-    "width": 80,
-    "height": 80,
-    "url": "https://sillia.pages.dev/assets/sillia.png"
+    "y": 120,
+    "width": 160,
+    "height": 160,
+    "url": "https://sillia.pages.dev/assets/sillia.png",
+    "shape": "circle",
+    "shadow": true
   },
+
+  {
+    "id": "title",
+    "type": "text",
+    "x": 40,
+    "y": 310,
+    "width": 320,
+    "height": 40,
+    "text": "Welcome to Sillia",
+    "textColor": "#222222",
+    "textSize": 26,
+    "bold": true,
+    "align": "center"
+  },
+
+  {
+    "id": "subtitle",
+    "type": "text",
+    "x": 60,
+    "y": 350,
+    "width": 280,
+    "height": 40,
+    "text": "Connect, Create, and Chat with the World",
+    "textColor": "#666666",
+    "textSize": 16,
+    "align": "center"
+  },
+
   {
     "id": "button_google",
     "type": "button",
     "x": 60,
-    "y": 220,
-    "width": 240,
+    "y": 450,
+    "width": 280,
     "height": 60,
     "color": "#4285F4",
-    "radius": 16,
-    "text": "Continue with Sillia",
+    "radius": 14,
+    "elevation": 6,
+    "text": "Continue with Google",
     "textColor": "#FFFFFF",
     "textSize": 18,
+    "bold": true,
+    "icon": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg",
+      "size": 28,
+      "position": "left"
+    },
     "actions": [
       {
         "type": "print",
@@ -35,55 +82,146 @@
       }
     ]
   },
+
+  {
+    "id": "divider_text",
+    "type": "text",
+    "x": 120,
+    "y": 540,
+    "width": 160,
+    "height": 40,
+    "text": "or continue with",
+    "textColor": "#999999",
+    "textSize": 14,
+    "align": "center"
+  },
+
+  {
+    "id": "social_buttons",
+    "type": "horizontal_group",
+    "x": 80,
+    "y": 580,
+    "spacing": 20,
+    "components": [
+      {
+        "id": "github_button",
+        "type": "button",
+        "width": 60,
+        "height": 60,
+        "radius": 30,
+        "color": "#24292F",
+        "icon": {
+          "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+          "size": 30
+        },
+        "actions": [
+          {
+            "type": "toast",
+            "payload": {
+              "message": "GitHub sign-in coming soon!"
+            }
+          }
+        ]
+      },
+      {
+        "id": "twitter_button",
+        "type": "button",
+        "width": 60,
+        "height": 60,
+        "radius": 30,
+        "color": "#1DA1F2",
+        "icon": {
+          "url": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg",
+          "size": 26
+        },
+        "actions": [
+          {
+            "type": "toast",
+            "payload": {
+              "message": "Twitter sign-in coming soon!"
+            }
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "id": "footer_text",
+    "type": "text",
+    "x": 40,
+    "y": 700,
+    "width": 320,
+    "height": 40,
+    "text": "By continuing, you agree to Sillia’s Terms & Privacy Policy.",
+    "textColor": "#AAAAAA",
+    "textSize": 12,
+    "align": "center"
+  },
+
   {
     "id": "profile_screen",
     "type": "layout",
     "visible": false,
     "components": [
       {
-        "id": "profile_pic",
+        "id": "profile_bg",
+        "type": "box",
+        "x": 0,
+        "y": 0,
+        "width": 400,
+        "height": 800,
+        "color": "#FFFFFF"
+      },
+      {
+        "id": "profile_circle",
         "type": "image",
-        "x": 140,
+        "x": 120,
         "y": 120,
-        "width": 100,
-        "height": 100,
+        "width": 160,
+        "height": 160,
+        "url": "https://sillia.pages.dev/assets/sillia.png",
         "shape": "circle",
-        "url": "https://sillia.pages.dev/assets/sillia.png"
+        "shadow": true
       },
       {
         "id": "profile_name",
         "type": "text",
-        "x": 100,
-        "y": 240,
-        "width": 200,
+        "x": 40,
+        "y": 320,
+        "width": 320,
         "height": 40,
         "text": "Sillia User",
-        "textColor": "#000000",
-        "textSize": 20
+        "textColor": "#111111",
+        "textSize": 22,
+        "bold": true,
+        "align": "center"
       },
       {
         "id": "profile_email",
         "type": "text",
-        "x": 100,
-        "y": 280,
-        "width": 200,
-        "height": 40,
+        "x": 40,
+        "y": 360,
+        "width": 320,
+        "height": 30,
         "text": "user@sillia.dev",
         "textColor": "#555555",
-        "textSize": 16
+        "textSize": 16,
+        "align": "center"
       },
       {
         "id": "back_button",
         "type": "button",
-        "x": 120,
-        "y": 350,
-        "width": 160,
-        "height": 50,
+        "x": 100,
+        "y": 440,
+        "width": 200,
+        "height": 55,
+        "radius": 16,
         "color": "#EEEEEE",
-        "radius": 12,
-        "text": "Go Back",
+        "text": "← Back to Home",
         "textColor": "#333333",
         "textSize": 16,
+        "bold": true,
         "actions": [
           {
             "type": "navigate_back"
