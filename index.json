@@ -10,7 +10,7 @@
       "color": "#4285F4",
       "radius": 12,
       "onClick": {
-        "type": "google_sign_in",
+        "type": "google_signin",
         "successNavigate": "profile_screen"
       }
     },
