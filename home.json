@@ -2,22 +2,26 @@
   {
     "id": "google_button",
     "type": "box",
-    "x": 50,
-    "y": 200,
-    "width": 300,
-    "height": 60,
+    "x": 100,
+    "y": 400,
+    "width": 600,
+    "height": 120,
     "color": "#4285F4",
     "text": "Continue with Google",
     "actions": [
       {
         "type": "google_sign_in"
-      },
-      {
-        "type": "navigate_to",
-        "payload": {
-          "screen_id": "profile"
-        }
       }
     ]
+  },
+  {
+    "id": "welcome_text",
+    "type": "text",
+    "x": 100,
+    "y": 200,
+    "width": 600,
+    "height": 80,
+    "color": "#000000",
+    "text": "Welcome to Sillia Chat!"
   }
 ]
