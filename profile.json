@@ -1,41 +1,33 @@
 [
   {
-    "id": "background",
+    "id": "profile_box",
     "type": "box",
-    "x": 0,
-    "y": 0,
-    "width": 360,
-    "height": 640,
-    "color": "#FFFFFF"
-  },
-  {
-    "id": "profile_header",
-    "type": "box",
-    "x": 30,
-    "y": 50,
+    "x": 50,
+    "y": 100,
     "width": 300,
-    "height": 50,
-    "color": "#03DAC5",
-    "text": "Profile"
+    "height": 200,
+    "color": "#2C2C2C",
+    "text": "Profile Info",
+    "actions": []
   },
   {
     "id": "profile_name",
-    "type": "box",
-    "x": 30,
-    "y": 120,
-    "width": 300,
-    "height": 50,
-    "color": "#BB86FC",
-    "text": "Name: {name}"
+    "type": "text",
+    "x": 70,
+    "y": 130,
+    "width": 260,
+    "height": 30,
+    "text": "Name: {name}",
+    "actions": []
   },
   {
     "id": "profile_email",
-    "type": "box",
-    "x": 30,
-    "y": 190,
-    "width": 300,
-    "height": 50,
-    "color": "#BB86FC",
-    "text": "Email: {email}"
+    "type": "text",
+    "x": 70,
+    "y": 170,
+    "width": 260,
+    "height": 30,
+    "text": "Email: {email}",
+    "actions": []
   }
 ]
