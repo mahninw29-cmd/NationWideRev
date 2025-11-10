@@ -1,15 +1,36 @@
 [
   {
+    "id": "background",
+    "type": "box",
+    "x": 0,
+    "y": 0,
+    "width": 360,
+    "height": 640,
+    "color": "#F5F5F5"
+  },
+  {
+    "id": "title",
+    "type": "box",
+    "x": 30,
+    "y": 100,
+    "width": 300,
+    "height": 50,
+    "color": "#6200EE",
+    "text": "Welcome to Sillia"
+  },
+  {
     "id": "google_button",
     "type": "box",
-    "x": 50,
-    "y": 100,
-    "width": 240,
-    "height": 56,
+    "x": 80,
+    "y": 200,
+    "width": 200,
+    "height": 60,
     "color": "#4285F4",
     "text": "Continue with Google",
     "actions": [
-      { "type": "google_sign_in" }
+      {
+        "type": "google_sign_in"
+      }
     ]
   }
 ]
