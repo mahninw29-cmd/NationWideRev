@@ -2,32 +2,45 @@
   {
     "id": "profile_box",
     "type": "box",
-    "x": 50,
-    "y": 100,
-    "width": 300,
-    "height": 200,
-    "color": "#2C2C2C",
-    "text": "Profile Info",
-    "actions": []
+    "x": 100,
+    "y": 150,
+    "width": 600,
+    "height": 600,
+    "color": "#F5F5F5"
   },
   {
-    "id": "profile_name",
+    "id": "profile_text",
     "type": "text",
-    "x": 70,
-    "y": 130,
-    "width": 260,
-    "height": 30,
-    "text": "Name: {name}",
-    "actions": []
+    "x": 150,
+    "y": 180,
+    "width": 500,
+    "height": 60,
+    "color": "#000000",
+    "text": "Name: {name}"
   },
   {
-    "id": "profile_email",
+    "id": "email_text",
     "type": "text",
-    "x": 70,
-    "y": 170,
-    "width": 260,
-    "height": 30,
-    "text": "Email: {email}",
-    "actions": []
+    "x": 150,
+    "y": 260,
+    "width": 500,
+    "height": 60,
+    "color": "#000000",
+    "text": "Email: {email}"
+  },
+  {
+    "id": "back_button",
+    "type": "box",
+    "x": 100,
+    "y": 800,
+    "width": 200,
+    "height": 80,
+    "color": "#DD3333",
+    "text": "Back",
+    "actions": [
+      {
+        "type": "navigate_back"
+      }
+    ]
   }
 ]
