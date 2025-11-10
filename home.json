@@ -4,14 +4,12 @@
     "type": "box",
     "x": 50,
     "y": 100,
-    "width": 200,
-    "height": 50,
+    "width": 240,
+    "height": 56,
     "color": "#4285F4",
     "text": "Continue with Google",
     "actions": [
-      {
-        "type": "google_sign_in"
-      }
+      { "type": "google_sign_in" }
     ]
   }
 ]
