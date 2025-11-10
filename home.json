@@ -1,9 +1,19 @@
 [
   {
+    "id": "welcome_text",
+    "type": "text",
+    "x": 100,
+    "y": 200,
+    "width": 600,
+    "height": 80,
+    "color": "#000000",
+    "text": "Welcome to Sillia Chat!"
+  },
+  {
     "id": "google_button",
     "type": "box",
     "x": 100,
-    "y": 400,
+    "y": 320,
     "width": 600,
     "height": 120,
     "color": "#4285F4",
@@ -13,15 +23,5 @@
         "type": "google_sign_in"
       }
     ]
-  },
-  {
-    "id": "welcome_text",
-    "type": "text",
-    "x": 100,
-    "y": 200,
-    "width": 600,
-    "height": 80,
-    "color": "#000000",
-    "text": "Welcome to Sillia Chat!"
   }
 ]
