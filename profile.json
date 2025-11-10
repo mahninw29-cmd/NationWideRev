@@ -1,12 +1,41 @@
 [
   {
-    "id": "welcome_text",
+    "id": "background",
     "type": "box",
-    "x": 20,
-    "y": 60,
+    "x": 0,
+    "y": 0,
+    "width": 360,
+    "height": 640,
+    "color": "#FFFFFF"
+  },
+  {
+    "id": "profile_header",
+    "type": "box",
+    "x": 30,
+    "y": 50,
     "width": 300,
-    "height": 80,
-    "color": "#34A853",
-    "text": "Welcome, {name}!"
+    "height": 50,
+    "color": "#03DAC5",
+    "text": "Profile"
+  },
+  {
+    "id": "profile_name",
+    "type": "box",
+    "x": 30,
+    "y": 120,
+    "width": 300,
+    "height": 50,
+    "color": "#BB86FC",
+    "text": "Name: {name}"
+  },
+  {
+    "id": "profile_email",
+    "type": "box",
+    "x": 30,
+    "y": 190,
+    "width": 300,
+    "height": 50,
+    "color": "#BB86FC",
+    "text": "Email: {email}"
   }
 ]
