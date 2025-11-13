@@ -7,86 +7,141 @@
 <style>
   body {
     font-family: Arial, sans-serif;
-    background: #f6f7fb;
-    color: #111;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 20px;
+    background: #f3f4f6;
+    margin: 0; padding: 0;
+    display: flex; flex-direction: column; align-items: center; min-height: 100vh;
   }
-  h1 { margin-bottom: 10px; }
-  input, button { padding: 10px; font-size: 1rem; margin: 5px; }
-  textarea { width: 100%; max-width: 600px; height: 300px; margin-top: 20px; padding: 10px; font-family: monospace; font-size: 0.9rem; }
-  button { cursor: pointer; background: #4f46e5; color: #fff; border: none; border-radius: 8px; transition: 0.2s; }
-  button:hover { background: #6366f1; }
+  .container {
+    background: #fff;
+    padding: 24px;
+    border-radius: 12px;
+    margin-top: 40px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    max-width: 700px;
+    width: 100%;
+  }
+  h1 { text-align: center; margin-bottom: 20px; }
+  input, button {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin: 5px 0;
+  }
+  button {
+    background: #4f46e5;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  pre {
+    background: #f8fafc;
+    padding: 12px;
+    border-radius: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  #status { margin-top: 10px; color: #4f46e5; font-weight: bold; }
 </style>
 </head>
 <body>
 
-<h1>YouTube Channel Fetcher</h1>
-<p>Enter the channel username (ex: KhitThitMedia) and your API Key</p>
-<input type="text" id="username" placeholder="Channel Username" value="KhitThitMedia">
-<input type="text" id="apiKey" placeholder="API Key">
-<button id="startBtn">Start Fetching</button>
-<button id="copyBtn" style="display:none;">Copy JSON</button>
-
-<textarea id="output" readonly placeholder="Fetched data will appear here..."></textarea>
+<div class="container">
+  <h1>YouTube Channel Video Fetcher</h1>
+  <label>
+    Channel Handle (e.g., @KhitThitMedia):
+    <input type="text" id="channelHandle" value="@KhitThitMedia">
+  </label>
+  <br>
+  <label>
+    API Key:
+    <input type="text" id="apiKey" placeholder="Enter your YouTube Data API v3 key">
+  </label>
+  <br>
+  <button id="startBtn">Start Fetching</button>
+  <button id="copyBtn" disabled>Copy JSON</button>
+  <div id="status"></div>
+  <pre id="output">{ }</pre>
+</div>
 
 <script>
-document.getElementById('startBtn').addEventListener('click', async () => {
-  const username = document.getElementById('username').value.trim();
+const startBtn = document.getElementById('startBtn');
+const copyBtn = document.getElementById('copyBtn');
+const output = document.getElementById('output');
+const status = document.getElementById('status');
+
+async function fetchAllVideos(channelHandle, apiKey) {
+  status.textContent = "Fetching channel info...";
+  
+  // Step 1: Get channel ID by handle
+  const searchResp = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&type=channel&q=${encodeURIComponent(channelHandle)}&key=${apiKey}`);
+  const searchData = await searchResp.json();
+  if (!searchData.items || searchData.items.length === 0) throw new Error("Channel not found");
+  const channelId = searchData.items[0].snippet.channelId;
+
+  status.textContent = "Fetching uploads playlist ID...";
+
+  // Step 2: Get uploads playlist ID
+  const channelResp = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${channelId}&key=${apiKey}`);
+  const channelData = await channelResp.json();
+  if (!channelData.items || channelData.items.length === 0) throw new Error("Uploads not found");
+  const uploadsPlaylistId = channelData.items[0].contentDetails.relatedPlaylists.uploads;
+
+  status.textContent = "Fetching videos...";
+
+  // Step 3: Fetch all videos in the playlist
+  let videos = [];
+  let nextPageToken = '';
+  do {
+    const playlistResp = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=50&pageToken=${nextPageToken}&key=${apiKey}`);
+    const playlistData = await playlistResp.json();
+    if (!playlistData.items) break;
+    playlistData.items.forEach(item => {
+      videos.push({
+        title: item.snippet.title,
+        videoId: item.snippet.resourceId.videoId,
+        timestamp: Date.now()
+      });
+    });
+    nextPageToken = playlistData.nextPageToken || '';
+  } while (nextPageToken);
+
+  return videos;
+}
+
+startBtn.addEventListener('click', async () => {
+  const handle = document.getElementById('channelHandle').value.trim();
   const apiKey = document.getElementById('apiKey').value.trim();
-  const output = document.getElementById('output');
-  const copyBtn = document.getElementById('copyBtn');
+  if (!handle || !apiKey) { alert("Please enter channel handle and API key."); return; }
 
-  if (!username || !apiKey) { alert("Please enter username and API Key."); return; }
-
-  output.value = "Fetching channel info...";
-  copyBtn.style.display = "none";
+  startBtn.disabled = true;
+  copyBtn.disabled = true;
+  output.textContent = '{ }';
+  status.textContent = 'Starting fetch...';
 
   try {
-    // Step 1: Get channel ID and uploads playlist
-    const channelResp = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forUsername=${username}&key=${apiKey}`);
-    const channelData = await channelResp.json();
-    if (!channelData.items || channelData.items.length === 0) throw new Error("Channel not found");
-
-    const uploadsPlaylistId = channelData.items[0].contentDetails.relatedPlaylists.uploads;
-
-    // Step 2: Fetch all videos
-    let videos = [];
-    let nextPageToken = "";
-    output.value = "Fetching videos...";
-
-    do {
-      const playlistResp = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=50&pageToken=${nextPageToken}&key=${apiKey}`);
-      const playlistData = await playlistResp.json();
-
-      playlistData.items.forEach(item => {
-        videos.push({
-          title: item.snippet.title,
-          videoId: item.snippet.resourceId.videoId,
-          timestamp: Date.now()
-        });
-      });
-
-      nextPageToken = playlistData.nextPageToken || "";
-      output.value = `Fetched ${videos.length} videos...`;
-    } while(nextPageToken);
-
-    // Step 3: Display JSON
-    output.value = JSON.stringify(videos, null, 2);
-    copyBtn.style.display = "inline-block";
+    const videos = await fetchAllVideos(handle, apiKey);
+    output.textContent = JSON.stringify(videos, null, 2);
+    status.textContent = `Fetched ${videos.length} videos successfully!`;
+    copyBtn.disabled = false;
   } catch (err) {
-    output.value = "Error: " + err.message;
+    status.textContent = "Error: " + err.message;
+  } finally {
+    startBtn.disabled = false;
   }
 });
 
-document.getElementById('copyBtn').addEventListener('click', () => {
-  const output = document.getElementById('output');
-  output.select();
-  output.setSelectionRange(0, 99999); // mobile
-  document.execCommand("copy");
-  alert("JSON copied to clipboard!");
+copyBtn.addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(output.textContent);
+    status.textContent = "JSON copied to clipboard!";
+  } catch (err) {
+    status.textContent = "Failed to copy JSON.";
+  }
 });
 </script>
 
