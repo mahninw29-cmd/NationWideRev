@@ -76,7 +76,7 @@ const status = document.getElementById('status');
 
 async function fetchAllVideos(channelHandle, apiKey) {
   status.textContent = "Fetching channel info...";
-  
+
   // Step 1: Get channel ID by handle
   const searchResp = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&type=channel&q=${encodeURIComponent(channelHandle)}&key=${apiKey}`);
   const searchData = await searchResp.json();
@@ -100,18 +100,21 @@ async function fetchAllVideos(channelHandle, apiKey) {
     const playlistResp = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=50&pageToken=${nextPageToken}&key=${apiKey}`);
     const playlistData = await playlistResp.json();
     if (!playlistData.items) break;
+
     playlistData.items.forEach(item => {
       videos.push({
         title: item.snippet.title,
         videoId: item.snippet.resourceId.videoId,
-        timestamp: Date.now()
+        timestamp: Date.parse(item.snippet.publishedAt) // <-- here
       });
     });
+
     nextPageToken = playlistData.nextPageToken || '';
   } while (nextPageToken);
 
   return videos;
 }
+
 
 startBtn.addEventListener('click', async () => {
   const handle = document.getElementById('channelHandle').value.trim();
